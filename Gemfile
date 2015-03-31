@@ -23,6 +23,13 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'bootstrap-sass', '~> 3.3.3'
+gem "autoprefixer-rails"
+
+gem 'puma'
+gem 'devise'
+gem 'figaro'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -41,5 +48,32 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'spring-commands-rspec'
+  
+  # Added by EG
+  gem 'better_errors'
+  gem 'binding_of_caller'
+
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+
+  gem 'faker'
 end
 
+group :test do
+  # testing
+  gem 'email_spec'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', "~> 4.0"
+
+  gem 'database_cleaner'
+  gem 'capybara'
+  #gem 'selenium-webdriver', '>=2.45.dev3'
+  gem 'capybara-webkit'
+  gem 'shoulda-matchers', require: false
+end
+
+group :production do
+    gem 'rails_12factor'
+end
