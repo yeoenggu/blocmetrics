@@ -11,7 +11,34 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
+  <!-- Text input: name-->
+  <div class="form-group">
+    <%= f.label :name, class: "control-label" %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <!-- Text input: url -->
+  <div class="form-group">
+    <%= f.label :url, class: "control-label" %>
+    <%= f.text_field :url, class: 'form-control' %>
+  </div>
+
+  <!-- Text input-->
+  <!--
+  <div class="form-group">
+    <label class="control-label" for="app_url">url</label>
+    <div class="controls">
+      <input id="app_url" name="url" type="text" placeholder="www..." class="input-large">
+    </div>
+  </div>
+  -->
+  
+  <br>
+
+  <!-- Button -->
+  <div class="action">
+    <div class="controls">
+      <%= f.submit("Register", class: "btn btn-inverse") %>
+    </div>
   </div>
 <% end %>

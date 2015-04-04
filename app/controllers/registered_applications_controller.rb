@@ -1,5 +1,6 @@
 class RegisteredApplicationsController < ApplicationController
   before_action :set_registered_application, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /registered_applications
   # GET /registered_applications.json
@@ -10,6 +11,9 @@ class RegisteredApplicationsController < ApplicationController
   # GET /registered_applications/1
   # GET /registered_applications/1.json
   def show
+    p "***************"
+    p @registered_application.inspect
+    p "***************"
   end
 
   # GET /registered_applications/new
@@ -24,6 +28,7 @@ class RegisteredApplicationsController < ApplicationController
   # POST /registered_applications
   # POST /registered_applications.json
   def create
+    # raise "test"
     @registered_application = RegisteredApplication.new(registered_application_params)
 
     respond_to do |format|
@@ -69,6 +74,6 @@ class RegisteredApplicationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def registered_application_params
-      params[:registered_application]
+      params.require(:registered_application).permit(:name, :url)
     end
 end
