@@ -12,7 +12,9 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="active"> <%= link_to "Home", welcome_index_path %> </li>
-        <li><%= link_to "About", welcome_about_path %></li>
+        <li> <%= link_to("Register New App", new_registered_application_path) %></li>
+        <li> <%= link_to("List", registered_applications_path) %></li>
+        <li> <%= link_to "About", welcome_about_path %> </li>
       </ul><!-- end of navbar -->
 
       <ul class="nav navbar-nav pull-right">
