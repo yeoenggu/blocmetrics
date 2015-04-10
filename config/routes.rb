@@ -2,9 +2,11 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'welcome/index'
+  get 'welcome/about'
 
   # show that this users_controller does not intercept devise actions.
   resources :users, only: :show
+
 
   root to: 'welcome#index'
 

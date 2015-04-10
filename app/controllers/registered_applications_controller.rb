@@ -27,6 +27,7 @@ class RegisteredApplicationsController < ApplicationController
   # POST /registered_applications.json
   def create
 
+    
     @registered_application = RegisteredApplication.new(registered_application_params)
 
     respond_to do |format|

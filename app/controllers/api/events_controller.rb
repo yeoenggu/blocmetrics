@@ -2,12 +2,16 @@ class API::EventsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    
+    p "*"*8
+    p params.inspect
+    p "*"*8
     registered_application = RegisteredApplication.find_by(url: request.env['HTTP_ORIGIN'])
 
-    binding.pry
     if registered_application
-      @event = Event.new(event_params)
+      # @event = Event.new(event_params)
+      name = params[:event][:name]
+      payload = params[:event][:payload]
+      @event = registered_application.events.new(name: name, payload: payload)
 
       if @event.save
         render json: @event, status: :created
@@ -22,6 +26,10 @@ class API::EventsController < ApplicationController
   private
 
   def event_params
+    # params.require(:event).permit(:name).tap do |whitelisted|
+    #   whitelisted[:payload] = params[:event][:name]
+    # end
+
     params.require(:event).permit(:name)
   end
 end
