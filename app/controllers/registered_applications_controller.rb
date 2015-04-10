@@ -11,9 +11,7 @@ class RegisteredApplicationsController < ApplicationController
   # GET /registered_applications/1
   # GET /registered_applications/1.json
   def show
-    p "***************"
-    p @registered_application.inspect
-    p "***************"
+    @events = @registered_application.events.group_by(&:name)
   end
 
   # GET /registered_applications/new
@@ -28,7 +26,8 @@ class RegisteredApplicationsController < ApplicationController
   # POST /registered_applications
   # POST /registered_applications.json
   def create
-    # raise "test"
+
+    
     @registered_application = RegisteredApplication.new(registered_application_params)
 
     respond_to do |format|
@@ -76,4 +75,5 @@ class RegisteredApplicationsController < ApplicationController
     def registered_application_params
       params.require(:registered_application).permit(:name, :url)
     end
+
 end
