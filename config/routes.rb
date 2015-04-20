@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'welcome/about'
+  get 'welcome/index'
 
   # show that this users_controller does not intercept devise actions.
   resources :users, only: :show
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
     resources :events, only: [:create]
   end
 
+  match '*path' => 'cors#preflight', :via => :options
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
