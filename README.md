@@ -13,7 +13,7 @@ curl -H "Content-Type: application/json" -d '{"user":{"email":"user2@example.com
 
 Creating the users.  This work.
 
-curl -H "Content-Type: application/json" -d '{"email":"user2@example.com","password":"12345678", "confirm_success_url":"http://localhost:3000/"}' -X POST http://localhost:3000/api/v1/auth
+curl -H "Content-Type: application/json" -d '{"email":"user3@example.com","password":"12345678", "confirm_success_url":"http://localhost:3000/"}' -X POST http://localhost:3000/api/v1/auth
 
 response:
 {"status":"success","data":{"id":3,"email":"user2@example.com","created_at":"2015-05-01T05:08:17.356Z","updated_at":"2015-05-01T05:08:17.356Z","provider":"email","uid":"user2@example.com"}}
