@@ -1,11 +1,9 @@
 class API::EventsController < ApplicationController
   allow_cors :create
   skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!
 
   def create
-    # p "********"
-    # p request.inspect
-    # p "********"
 
     registered_application = RegisteredApplication.find_by(url: request.env['HTTP_ORIGIN'])
 
